@@ -1,0 +1,146 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.30
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema hoteltest
+--
+
+CREATE DATABASE IF NOT EXISTS hoteltest;
+USE hoteltest;
+
+--
+-- Definition of table `room`
+--
+
+DROP TABLE IF EXISTS `room`;
+CREATE TABLE `room` (
+  `idRoom` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `classRoom` varchar(45) NOT NULL,
+  `placeRoom` int(10) unsigned NOT NULL,
+  `price` int(10) unsigned NOT NULL,
+  `status` varchar(45) NOT NULL,
+  `timeOrder` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idRoom`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `room`
+--
+
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` (`idRoom`,`classRoom`,`placeRoom`,`price`,`status`,`timeOrder`) VALUES 
+ (1,'LUX',1,100,'occupied',7),
+ (2,'ECON',2,20,'not occupied',0),
+ (3,'STANDART',2,50,'not occupied',0),
+ (4,'STANDART',3,50,'occupied',15),
+ (5,'ECON',1,20,'occupied',8),
+ (6,'LUX',1,100,'occupied',7),
+ (7,'ECON',2,20,'not occupied',0),
+ (8,'STANDART',2,50,'not occupied',0),
+ (9,'STANDART',3,50,'not occupied',0),
+ (10,'ECON',1,20,'occupied',8),
+ (11,'LUX',1,100,'occupied',7),
+ (12,'ECON',2,20,'not occupied',0),
+ (13,'STANDART',2,50,'not occupied',0),
+ (14,'STANDART',3,50,'not occupied',0),
+ (15,'ECON',1,20,'occupied',8),
+ (16,'LUX',1,100,'occupied',7),
+ (17,'ECON',2,20,'not occupied',0),
+ (18,'STANDART',2,50,'not occupied',0),
+ (19,'STANDART',3,50,'not occupied',0),
+ (20,'ECON',1,20,'occupied',8),
+ (21,'LUX',1,100,'occupied',7),
+ (22,'ECON',2,20,'not occupied',0),
+ (23,'STANDART',2,50,'not occupied',0),
+ (24,'STANDART',3,50,'not occupied',0),
+ (25,'ECON',1,20,'occupied',8),
+ (26,'LUX',1,100,'occupied',7),
+ (27,'ECON',2,20,'not occupied',0),
+ (28,'STANDART',2,50,'not occupied',0),
+ (29,'STANDART',3,50,'not occupied',0),
+ (30,'ECON',1,20,'occupied',8);
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
+
+
+--
+-- Definition of table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `login` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `phone` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` (`id`,`login`,`password`,`email`,`phone`) VALUES 
+ (1,'a','1','admin@mail.com','7071515'),
+ (2,'Gennadiy','22','Gennadiy@bk.ru','3331212'),
+ (3,'Jirinovskiy','33','Jirinovskiy@bk.ru','1112323'),
+ (4,'Jora','44','Jora@bk.ru','5554848'),
+ (5,'Petrovich','55','Petrovich@bk.ru','4447878'),
+ (6,'Petya','66','Petya@bk.ru','3335656'),
+ (7,'Samardak','77','Samardak@bk.ru','6665959'),
+ (8,'Senya','88','Senya@bk.ru','7771313'),
+ (9,'Vasia','99','Vasia@bk.ru','1234567'),
+ (10,'sir','11','sir@bk.ru','4455667'),
+ (11,'asd','asd','asd','asd');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
+
+--
+-- Definition of table `booking`
+--
+
+DROP TABLE IF EXISTS `booking`;
+CREATE TABLE `booking` (
+  `idBooking` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idUser` int(10) NOT NULL,
+  `placeRoom` varchar(45) NOT NULL,
+  `classRoom` varchar(45) NOT NULL,
+  `timeBooking` varchar(45) NOT NULL,
+  `coinsidence` int(10) unsigned NOT NULL,
+  `payment` tinyint(1) NOT NULL,
+  PRIMARY KEY (`idBooking`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `booking`
+--
+
+/*!40000 ALTER TABLE `booking` DISABLE KEYS */;
+INSERT INTO `booking` (`idBooking`,`idUser`,`placeRoom`,`classRoom`,`timeBooking`,`coinsidence`,`payment`) VALUES 
+ (13,'6','3','Standart','15',4,1);
+/*!40000 ALTER TABLE `booking` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
